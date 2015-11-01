@@ -10,9 +10,9 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/goyo.vim'
-
+Plugin 'kien/ctrlp.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
@@ -20,10 +20,11 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'bling/vim-airline'
 "Plugin 'edkolev/tmuxline.vim'
 Plugin 'godlygeek/tabular'
-Plugin 'anzaika/go.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdtree'
+
+Plugin 'anzaika/go.vim'
+Plugin 'rust-lang/rust.vim'
 
 Plugin 'sjl/badwolf'
 Plugin 'zeis/vim-kolor'
@@ -56,14 +57,14 @@ set shiftwidth=4
 set expandtab
 set smarttab
 
+set scrolloff=4
+
 set novisualbell
 set noerrorbells
 
 set ruler
 
 set mouse=a
-
-nnoremap <F5> :NERDTreeToggle<CR>
 
 syntax on
 let g:seoul256_background=233
