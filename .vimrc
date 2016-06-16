@@ -3,38 +3,52 @@
 "    \ \| | | | | | |  | [__
 " [_] \___|_|_|_|_|_|  \____|
 
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+" https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+call plug#begin('~/.vim/plugged')
+
+" Distraction-free writing via :Goyo
+Plug 'junegunn/goyo.vim'
+
+" File finder
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Snippets
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+
+" Status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Align lists, e.g. :Tab /=
+Plug 'godlygeek/tabular'
+
+" Quoting/parenthesizing helper, e.g. cs'<q>
+Plug 'tpope/vim-surround'
+
+" Language-specifc plugins
+Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
+Plug 'elixir-lang/vim-elixir'
+
+Plug 'scrooloose/syntastic'
+Plug 'Shougo/neocomplete.vim'
+
+" Themes
+Plug 'sjl/badwolf'
+Plug 'zeis/vim-kolor'
+Plug 'junegunn/seoul256.vim'
+Plug 'cocopon/iceberg.vim'
+Plug 'w0ng/vim-hybrid'
+Plug 'molokai'
+Plug 'alessandroyorba/alduin'
+
+call plug#end()
 
 set nocompatible
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'junegunn/goyo.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'honza/vim-snippets'
-Plugin 'garbas/vim-snipmate'
-Plugin 'bling/vim-airline'
-"Plugin 'edkolev/tmuxline.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-
-Plugin 'anzaika/go.vim'
-Plugin 'rust-lang/rust.vim'
-
-Plugin 'sjl/badwolf'
-Plugin 'zeis/vim-kolor'
-Plugin 'junegunn/seoul256.vim'
-Plugin 'cocopon/iceberg.vim'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'molokai'
-
-call vundle#end()
-filetype plugin indent on
 
 set nu
 
@@ -65,10 +79,27 @@ set noerrorbells
 set ruler
 
 set mouse=a
+set ttymouse=xterm2
+
+let g:neocomplete#enable_at_startup = 1
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height = 5
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_error_symbol = "⨯"
+let g:syntastic_style_warning_symbol = '?'
+let g:syntastic_style_error_symbol = 'ϟ'
 
 syntax on
 let g:seoul256_background=233
-colo seoul256
+colo alduin
 set laststatus=2
 set noshowmode
 
